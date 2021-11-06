@@ -1,0 +1,5 @@
+[build]
+rustflags = "-C target-cpu=native"
+
+[install]
+root = "/usr/local/bin"
