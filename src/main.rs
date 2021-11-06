@@ -18,11 +18,11 @@ impl System {
         let packages = os_info::get_packages(&distro);
         System {
             user: os_info::get_user(),
-            distro: distro,
+            distro,
             kernel: os_info::get_kernel(),
             uptime: os_info::get_uptime(),
             shell: os_info::get_shell(),
-            packages: packages
+            packages
         }
     }
 }
