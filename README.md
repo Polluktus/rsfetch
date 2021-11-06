@@ -22,7 +22,7 @@
 
 (AVG for 3 runs)
 
-| fetch program           | Maximum resident ram | Execution time | Minor page faults | Involuntary context switches |
+| Fetch program           | Maximum resident ram | Execution time | Minor page faults | Involuntary context switches |
 | ---------------         | ------               | -------        | -----------       | ----------                   |
 | **rsfetch**             | 2220kb               | 0s             |   186             |  2                           |
 | neofetch                | 7103kb               | 0.12s          |   36095           |  24                          |
@@ -49,7 +49,7 @@ git clone https://github.com/polluktus/rsfetch.git
 cd rsfetch
 vim src/config.rs
 cargo build --release
-(oprional but recomended) strip target/release/rsfetch
+(optional but recommended) strip target/release/rsfetch
 cp -v target/release/rsfetch /usr/local/bin
 ```
 
