@@ -29,6 +29,7 @@
 | fastfetch               | 10568kb              | 0s             |   740             |  12                          |
 | afetch                  | 3868kb               | 0.02s          |   518             |  6                           |
 | pfetch                  | 2304kb               | 0.01s          |   1339            |  6                           |
+| screenfetch             | 48283kb              | 0.3s           |   37708           |  64                          |
 
 <br>
 
