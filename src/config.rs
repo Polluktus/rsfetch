@@ -14,7 +14,7 @@ pub const BLUE: &str = "\x1b[34m";
 pub const MAGENTA: &str = "\x1b[35m";
 pub const CYAN: &str = "\x1b[36m";
 
-pub const SHOW_COLORS: bool = true;             //show colour characters [true or false]
+pub const SHOW_COLORS: bool = true;             //show color characters [true or false]
 pub const COLOUR_CHARACTER: char = '●';         
 
 /*
