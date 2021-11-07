@@ -15,6 +15,7 @@
 ## Requirements
 *  `/etc/os-release`
 *   <a href="https://www.rust-lang.org/learn/get-started">rust compiler</a>
+*   <a href="https://www.nerdfonts.com/">Nerd Fonts</a>
 
 <br>
 
