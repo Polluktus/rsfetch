@@ -26,9 +26,8 @@ fn portage_packages() -> Result<u32, Box<dyn Error>> {
                             .output()?
                             .stdout;
 
-    let pkg_string = String::from_utf8_lossy(&count_pkg);
-    let final_num = pkg_string.trim().parse::<u32>()?;
-    Ok(final_num)
+    let pkg = String::from_utf8_lossy(&count_pkg).trim().parse::<u32>()?;
+    Ok(pkg)
 }
 
 fn pacman_packages() -> Result<u32, Box<dyn Error>> {
@@ -47,9 +46,8 @@ fn pacman_packages() -> Result<u32, Box<dyn Error>> {
                             .output()?
                             .stdout;
 
-    let pkg_string = String::from_utf8_lossy(&count_pkg);
-    let final_num = pkg_string.trim().parse::<u32>()?;
-    Ok(final_num)
+    let pkg = String::from_utf8_lossy(&count_pkg).trim().parse::<u32>()?;
+    Ok(pkg)
 }
 
 fn apt_packages() -> Result<u32, Box<dyn Error>> {
@@ -75,7 +73,6 @@ fn apt_packages() -> Result<u32, Box<dyn Error>> {
                             .output()?
                             .stdout;
 
-    let pkg_string = String::from_utf8_lossy(&count_pkg);
-    let final_num = pkg_string.trim().parse::<u32>()?;
-    Ok(final_num)
+    let pkg = String::from_utf8_lossy(&count_pkg).trim().parse::<u32>()?;
+    Ok(pkg)
 }
