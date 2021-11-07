@@ -50,9 +50,17 @@
 git clone https://github.com/polluktus/rsfetch.git
 cd rsfetch
 vim src/config.rs
+sudo cargo install --path .
+sudo strip /usr/local/bin/rsfetch
+```
+or more manual way
+```
+git clone https://github.com/polluktus/rsfetch.git
+cd rsfetch
+vim src/config.rs
 cargo build --release
 (optional but recommended) strip target/release/rsfetch
-cp -v target/release/rsfetch /usr/local/bin
+sudo cp -v target/release/rsfetch /usr/local/bin
 ```
 
 <br>
