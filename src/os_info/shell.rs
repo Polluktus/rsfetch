@@ -14,6 +14,10 @@ pub fn get_shell() -> Box<str> {
 }
 
 fn shell() -> Result<Box<str>, Box<VarError>> {
-    let shell = env::var("SHELL")?.chars().skip(5).collect::<String>();     //skips "/bin/"
-    Ok(shell.into_boxed_str())
+    let shell = env::var("SHELL")?;
+
+    if shell.starts_with("/usr") {
+        return Ok(shell.chars().skip(9).collect::<String>().into_boxed_str());      //skips "/usr"
+    }
+    Ok(shell.chars().skip(5).collect::<String>().into_boxed_str())                  //skips "/bin"
 }
