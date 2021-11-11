@@ -153,6 +153,25 @@ GREEN, PKG_ICON, RESET, system.packages
 );
             colour_dots();
         }
+        "Fedora" => {
+            println!("        _____
+       /   __){}\\     {} {}{}
+       |  /  {}\\ \\    {} {}{}
+{}    __{}_|  |_{}_/ /    {} {}{}
+{}   / {}(_    _){}_/     {} {}{}
+{}  / /  {}|  |         {}{} {}{}
+{}  \\ \\{}__/  |         {}{} {}{}
+{}   \\{}(_____/",
+BLUE, USER_ICON, RESET, system.user,
+BLUE, DESKTOP_ICON, RESET, system.distro,
+BLUE, RESET, BLUE, LINUX_ICON, RESET, system.kernel,
+BLUE, RESET, BLUE, TIME_ICON, RESET, system.uptime,
+BLUE, RESET, BLUE, TERMINAL_ICON, RESET, system.shell,
+BLUE, RESET, BLUE, PKG_ICON, RESET, system.packages,
+BLUE, RESET
+);
+            colour_dots();
+        }
         _ => {
             println!("{}      ___     {}
 {}     ({}..{} \\        {}{} {}
