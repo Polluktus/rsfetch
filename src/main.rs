@@ -190,6 +190,22 @@ GREEN, PKG_ICON, RESET, system.packages,
 );
             colour_dots();
         }
+        "elementary OS" => {
+            println!("{}    _______      {} {}{}
+{}   /  ___  \\     {} {}{}
+{}  /  |  /  /\\    {} {}{}
+{}  |__\\ /  / |    {} {}{}
+{}  \\   /__/  /    {} {}{}
+{}   \\_______/     {} {}{}",
+BLUE, USER_ICON, RESET, system.user,
+BLUE, DESKTOP_ICON, RESET, system.distro,
+BLUE, LINUX_ICON, RESET, system.kernel,
+BLUE, TIME_ICON, RESET, system.uptime,
+BLUE, TERMINAL_ICON, RESET, system.shell,
+BLUE, PKG_ICON, RESET, system.packages,
+);
+            colour_dots();
+        }
         _ => {
             println!("{}      ___     {}
 {}     ({}..{} \\        {}{} {}
