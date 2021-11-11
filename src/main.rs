@@ -172,6 +172,24 @@ BLUE, RESET
 );
             colour_dots();
         }
+        "void" => {
+            println!("{}      _______{}
+{}      \\_____ `-      {} {}{}
+{}   /\\   ___ `- \\     {} {}{}
+{}  | |  /   \\  | |    {} {}{}
+{}  | |  \\___/  | |    {} {}{}
+{}   \\ `-_____  \\/     {} {}{}
+{}    `-______\\        {} {}{}",
+GREEN, RESET,
+GREEN, USER_ICON, RESET, system.user,
+GREEN, DESKTOP_ICON, RESET, system.distro,
+GREEN, LINUX_ICON, RESET, system.kernel,
+GREEN, TIME_ICON, RESET, system.uptime,
+GREEN, TERMINAL_ICON, RESET, system.shell,
+GREEN, PKG_ICON, RESET, system.packages,
+);
+            colour_dots();
+        }
         _ => {
             println!("{}      ___     {}
 {}     ({}..{} \\        {}{} {}
