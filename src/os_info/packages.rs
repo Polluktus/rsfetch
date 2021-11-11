@@ -76,3 +76,23 @@ fn apt_packages() -> Result<u32, Box<dyn Error>> {
     let pkg = String::from_utf8_lossy(&count_pkg).trim().parse::<u32>()?;
     Ok(pkg)
 }
+
+fn rpm_packages() -> Result<u32, Box<dyn Error>> {
+
+    let packages = Command::new("rpm")
+                                .arg("-q")
+                                .arg("-a")
+                                .stdout(Stdio::piped())
+                                .spawn()?
+                                .stdout
+                                .unwrap();
+
+    let count_pkg = Command::new("wc")
+                            .arg("-l")
+                            .stdin(packages)
+                            .output()?
+                            .stdout;
+
+    let pkg = String::from_utf8_lossy(&count_pkg).trim().parse::<u32>()?;
+    Ok(pkg)
+}
