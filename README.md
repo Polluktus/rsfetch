@@ -42,6 +42,9 @@
 * Ubuntu
 * Debian
 * Mint
+* Fedora
+* Void
+* elementary OS
 
 <br>
 
