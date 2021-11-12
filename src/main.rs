@@ -153,7 +153,7 @@ GREEN, PKG_ICON, RESET, system.packages
 );
             colour_dots();
         }
-        "Fedora" => {
+        "Fedora Linux" => {
             println!("        _____
        /   __){}\\     {} {}{}
        |  /  {}\\ \\    {} {}{}
