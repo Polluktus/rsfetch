@@ -83,19 +83,12 @@ fn rpm_packages() -> Result<u32, Box<dyn Error>> {
 
     let packages = Command::new("bash")
                                 .arg("-c")
-                                .arg("[[ $(which sqlite3 2> /dev/null) && $? -ne 1 ]] && (sqlite3 /var/lib/rpm/rpmdb.sqlite 'select * from Name') || rpm -qa")
-                                .stdout(Stdio::piped())
-                                .spawn()?
-                                .stdout
-                                .unwrap();
+                                .arg("[[ $(which sqlite3 2> /dev/null) && $? -ne 1 ]] && ((sqlite3 /var/lib/rpm/rpmdb.sqlite \"select COUNT(*) from Name\") || (sqlite3 /var/cache/dnf/packages.db \"SELECT count(pkg) FROM installed\")) || rpm -qa | wc -l")
+                                .output()?
+                                .stdout;
 
-    let count_pkg = Command::new("wc")
-                            .arg("-l")
-                            .stdin(packages)
-                            .output()?
-                            .stdout;
 
-    let pkg = String::from_utf8_lossy(&count_pkg).trim().parse::<u32>()?;
+    let pkg = String::from_utf8_lossy(&packages).trim().parse::<u32>()?;
     Ok(pkg)
 }
 
