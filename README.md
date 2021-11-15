@@ -45,6 +45,7 @@
 * Fedora
 * Void
 * elementary OS
+* Devuan
 
 <br>
 
