@@ -221,7 +221,6 @@ GREEN, TIME_ICON, RESET, system.uptime,
 GREEN, TERMINAL_ICON, RESET, system.shell,
 GREEN, PKG_ICON, RESET, system.packages,
 GREEN, RESET);
-
             colour_dots();
         }
         _ => {
