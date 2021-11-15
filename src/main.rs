@@ -220,7 +220,26 @@ GREEN, LINUX_ICON, RESET, system.kernel,
 GREEN, TIME_ICON, RESET, system.uptime,
 GREEN, TERMINAL_ICON, RESET, system.shell,
 GREEN, PKG_ICON, RESET, system.packages,
-GREEN, RESET);
+GREEN, RESET
+);
+            colour_dots();
+        }
+        "Devuan GNU/Linux" => {
+            println!("{}  -.,              {} {}{}
+{}     `'-.,         {} {}{}
+{}          `':.     {} {}{}
+{}             ::    {} {}{}
+{}        __--`:`    {} {}{}
+{}   _,--` _.-`      {} {}{}
+{}  :_,--``{}",
+MAGENTA, USER_ICON, RESET, system.user,
+MAGENTA, DESKTOP_ICON, RESET, system.distro,
+MAGENTA, LINUX_ICON, RESET, system.kernel,
+MAGENTA, TIME_ICON, RESET, system.uptime,
+MAGENTA, TERMINAL_ICON, RESET, system.shell,
+MAGENTA, PKG_ICON, RESET, system.packages,
+MAGENTA, RESET
+);
             colour_dots();
         }
         _ => {

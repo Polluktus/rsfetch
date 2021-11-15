@@ -6,7 +6,7 @@ pub fn get_packages(distro: &str) -> u32 {
     match distro {
         "Gentoo" => portage_packages().unwrap_or(0),
         "Arch Linux" | "Manjaro Linux" | "Artix Linux" => pacman_packages().unwrap_or(0),
-        "Ubuntu" | "Debian GNU/Linux" | "Linux Mint"| "elementary OS" => apt_packages().unwrap_or(0),
+        "Ubuntu" | "Debian GNU/Linux" | "Linux Mint"| "elementary OS" | "Devuan GNU/Linux"=> apt_packages().unwrap_or(0),
         "Fedora Linux" | "Rocky Linux" => rpm_packages().unwrap_or(0),
         "void" => xbps_packages().unwrap_or(0),
         _ => 0
