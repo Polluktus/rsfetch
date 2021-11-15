@@ -1,7 +1,7 @@
 mod os_info;
 mod config;
 use config::*;
-use os_info::{Uptime, get_user};
+use os_info::Uptime;
 use std::thread;
 use std::sync::{Arc, mpsc};
 
