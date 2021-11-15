@@ -81,9 +81,9 @@ fn apt_packages() -> Result<u32, Box<dyn Error>> {
 
 fn rpm_packages() -> Result<u32, Box<dyn Error>> {
 
-    let packages = Command::new("rpm")
-                                .arg("-q")
-                                .arg("-a")
+    let packages = Command::new("bash")
+                                .arg("-c")
+                                .arg("[[ $(which sqlite3 2> /dev/null) && $? -ne 1 ]] && (sqlite3 /var/lib/rpm/rpmdb.sqlite 'select * from Name') || rpm -qa")
                                 .stdout(Stdio::piped())
                                 .spawn()?
                                 .stdout
