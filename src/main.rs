@@ -50,12 +50,12 @@ MAGENTA, PKG_ICON, RESET, system.packages
             colour_dots();
         }
         "Arch Linux" => {
-            println!("{}        /\\        {} {}{}
-{}       /  \\       {} {}{}
-{}      /\\   \\      {} {}{}
-{}     /  __  \\     {} {}{}
-{}    /  (  )  \\    {} {}{}
-{}   / __|  |__\\\\   {} {}{}
+            println!("{}        /\\          {} {}{}
+{}       /  \\         {} {}{}
+{}      /\\   \\        {} {}{}
+{}     /  __  \\       {} {}{}
+{}    /  (  )  \\      {} {}{}
+{}   / __|  |__\\\\     {} {}{}
 {}  /.`        `.\\{}",
 BLUE, USER_ICON, RESET, system.user,
 BLUE, DESKTOP_ICON, RESET, system.distro,
@@ -68,12 +68,12 @@ BLUE, RESET
             colour_dots();
         }
         "Manjaro Linux" => {
-            println!("{}  ||||||||| ||||       {} {}{}
-{}  ||||||||| ||||       {} {}{}
-{}  ||||      ||||       {} {}{}
-{}  |||| |||| ||||       {} {}{}
-{}  |||| |||| ||||       {} {}{}
-{}  |||| |||| ||||       {} {}{}
+            println!("{}  ||||||||| ||||     {} {}{}
+{}  ||||||||| ||||     {} {}{}
+{}  ||||      ||||     {} {}{}
+{}  |||| |||| ||||     {} {}{}
+{}  |||| |||| ||||     {} {}{}
+{}  |||| |||| ||||     {} {}{}
 {}  |||| |||| ||||{}",
 GREEN, USER_ICON, RESET, system.user,
 GREEN, DESKTOP_ICON, RESET, system.distro,
@@ -86,12 +86,12 @@ GREEN, RESET
             colour_dots();
         }
         "Ubuntu" => {
-            println!("{}           _     {} {}{}
-{}       ---(_)    {} {}{}
-{}   _/  ---  \\    {} {}{}
-{}  (_) |   |      {} {}{}
-{}    \\  --- _/    {} {}{}
-{}       ---(_)    {} {}{}",
+            println!("{}           _      {} {}{}
+{}       ---(_)     {} {}{}
+{}   _/  ---  \\     {} {}{}
+{}  (_) |   |       {} {}{}
+{}    \\  --- _/     {} {}{}
+{}       ---(_)     {} {}{}",
 YELLOW, USER_ICON, RESET, system.user,
 YELLOW, DESKTOP_ICON, RESET, system.distro,
 YELLOW, LINUX_ICON, RESET, system.kernel,
@@ -102,12 +102,12 @@ YELLOW, PKG_ICON, RESET, system.packages,
             colour_dots()
         }
         "Artix Linux" => {
-            println!("{}        /\\        {} {}{}
-{}       /  \\       {} {}{}
-{}      /`'.,\\      {} {}{}
-{}     /     ',     {} {}{}
-{}    /      ,`\\    {} {}{}
-{}   /   ,.'`.  \\   {} {}{}
+            println!("{}        /\\          {} {}{}
+{}       /  \\         {} {}{}
+{}      /`'.,\\        {} {}{}
+{}     /     ',       {} {}{}
+{}    /      ,`\\      {} {}{}
+{}   /   ,.'`.  \\     {} {}{}
 {}  /.,'`     `'.\\{}",
 BLUE, USER_ICON, RESET, system.user,
 BLUE, DESKTOP_ICON, RESET, system.distro,
@@ -120,12 +120,12 @@ BLUE, RESET
             colour_dots();
         }
         "Debian GNU/Linux" => {
-            println!("{}     ,---._     {} {}{}
-{}   /`  __  \\    {} {}{}
-{}  |   /    |    {} {}{}
-{}  |   `.__.`    {} {}{}
-{}   \\            {} {}{}
-{}    `-,_        {} {}{}",
+            println!("{}     ,---._      {} {}{}
+{}   /`  __  \\     {} {}{}
+{}  |   /    |     {} {}{}
+{}  |   `.__.`     {} {}{}
+{}   \\             {} {}{}
+{}    `-,_         {} {}{}",
 RED, USER_ICON, RESET, system.user,
 RED, DESKTOP_ICON, RESET, system.distro,
 RED, LINUX_ICON, RESET, system.kernel,
