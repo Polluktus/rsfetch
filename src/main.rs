@@ -31,7 +31,7 @@ fn main() {
     let system = System::new();
 
     match &*system.distro {
-        "Gentoo" => {    
+        "Gentoo" => {
             println!("{}   .-----.{}
 {} .`    _  `.      {} {}{}
 {} `.   (_)   `.    {} {}{}
@@ -141,7 +141,7 @@ RED, PKG_ICON, RESET, system.packages,
 {}    |  {}| _____{}  |     {} {}{}
 {}    |  {}| | | |{}  |     {} {}{}
 {}    |  {}| | | |{}  |     {} {}{}
-{}    |  {}\\__{}___/  |     {} {}{}
+{}    | {}\\__{}___/  |     {} {}{}
 {}    \\___________/     {} {}{}",
 GREEN, RESET,
 GREEN, USER_ICON, RESET, system.user,
@@ -206,6 +206,24 @@ BLUE, PKG_ICON, RESET, system.packages,
 );
             colour_dots();
         }
+        "Rocky Linux" => {
+            println!("{}     .-'''-.     {} {}{}
+{}   .`       `.   {} {}{}
+{}  /      .    \\  {} {}{}
+{}  ;    .'.'.  ;  {} {}{}
+{}  \\  .'.' '.'./  {} {}{}
+{}   ''.'     ;    {} {}{}
+{}     '-----'     {}",
+GREEN, USER_ICON, RESET, system.user,
+GREEN, DESKTOP_ICON, RESET, system.distro,
+GREEN, LINUX_ICON, RESET, system.kernel,
+GREEN, TIME_ICON, RESET, system.uptime,
+GREEN, TERMINAL_ICON, RESET, system.shell,
+GREEN, PKG_ICON, RESET, system.packages,
+GREEN, RESET);
+
+            colour_dots();
+        }
         _ => {
             println!("{}      ___     {}
 {}     ({}..{} \\        {}{} {}
@@ -224,7 +242,7 @@ YELLOW, BLACK, RESET, BLACK, YELLOW, BLACK, RESET, TERMINAL_ICON, system.shell,
 YELLOW, BLACK, YELLOW, RESET, PKG_ICON, system.packages
 );
             colour_dots();
-        } 
+        }
     }
 }
 
@@ -244,3 +262,4 @@ fn colour_dots() {
     }
     println!();
 }
+ 
