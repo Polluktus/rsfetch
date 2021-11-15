@@ -4,4 +4,4 @@ version = 3
 
 [[package]]
 name = "rsfetch"
-version = "1.8.4"
+version = "2.0.0"
