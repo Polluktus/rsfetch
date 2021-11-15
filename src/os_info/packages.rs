@@ -1,15 +1,31 @@
 use std::process::{Command, Stdio};
 use std::error::Error;
 use std::result::Result;
+use std::sync::mpsc::Sender;
 
-pub fn get_packages(distro: &str) -> u32 {
+pub fn get_packages(distro: &str, tx: Sender<u32>) {
     match distro {
-        "Gentoo" => portage_packages().unwrap_or(0),
-        "Arch Linux" | "Manjaro Linux" | "Artix Linux" => pacman_packages().unwrap_or(0),
-        "Ubuntu" | "Debian GNU/Linux" | "Linux Mint"| "elementary OS" => apt_packages().unwrap_or(0),
-        "Fedora Linux" | "Rocky Linux" => rpm_packages().unwrap_or(0),
-        "void" => xbps_packages().unwrap_or(0),
-        _ => 0
+        "Gentoo" => {
+            let pkg = portage_packages().unwrap_or(0);
+            tx.send(pkg).unwrap();
+        },
+        "Arch Linux" | "Manjaro Linux" | "Artix Linux" => {
+            let pkg = pacman_packages().unwrap_or(0);
+            tx.send(pkg).unwrap();
+        },
+        "Ubuntu" | "Debian GNU/Linux" | "Linux Mint"| "elementary OS" => {
+            let pkg = apt_packages().unwrap_or(0);
+            tx.send(pkg).unwrap();
+        },
+        "Fedora Linux" | "Rocky Linux" => {
+            let pkg = rpm_packages().unwrap_or(0);
+            tx.send(pkg).unwrap();
+        },
+        "void" => {
+            let pkg = xbps_packages().unwrap_or(0);
+            tx.send(pkg).unwrap();
+        },
+        _ => tx.send(0).unwrap()
     }
 }
 

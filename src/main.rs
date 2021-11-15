@@ -1,7 +1,9 @@
 mod os_info;
 mod config;
 use config::*;
-use os_info::Uptime;
+use os_info::{Uptime, get_user};
+use std::thread;
+use std::sync::{Arc, mpsc};
 
 struct System {
     user: Box<str>,
@@ -14,14 +16,30 @@ struct System {
 
 impl System {
     fn new() -> System {
+        let (tx, rx) = mpsc::channel();
+
         let distro = os_info::distro_name();
-        let packages = os_info::get_packages(&distro);
+        let pointer = Arc::new(distro);
+
+        let t_pointer = pointer.clone();
+        let handle = thread::spawn(move || {
+            os_info::get_packages(&t_pointer, tx);
+        });
+
+        let user = os_info::get_user();
+        let kernel = os_info::get_kernel();
+        let uptime = os_info::get_uptime();
+        let shell = os_info::get_shell();
+        let packages = rx.recv().unwrap();
+        handle.join().unwrap();
+
+        let distro = Arc::try_unwrap(pointer).unwrap();
         System {
-            user: os_info::get_user(),
+            user,
             distro,
-            kernel: os_info::get_kernel(),
-            uptime: os_info::get_uptime(),
-            shell: os_info::get_shell(),
+            kernel,
+            uptime,
+            shell,
             packages
         }
     }
