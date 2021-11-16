@@ -10,8 +10,6 @@
 <h3>Why use rsfetch?</h3>
 <p">I created it to be as fast and low resource as possible, results can be seen in comparison part.</p><br>
 
----
-
 ## Requirements
 *  `/etc/os-release`
 *   <a href="https://www.rust-lang.org/learn/get-started">rust compiler</a>
