@@ -30,7 +30,7 @@ fn mem_bar() -> Result<Box<str>, Box<dyn Error>> {
 }
 
 fn ram_usage() -> Result<(u32,u32), Box<dyn Error>> {
-    let mut mem_used = 0;
+    let mut mem_free = 0;
     let mut mem_total = 0;
     let fb = BufReader::new(File::open(Path::new("/proc/meminfo"))?);
     for line in fb.lines() {
@@ -38,11 +38,11 @@ fn ram_usage() -> Result<(u32,u32), Box<dyn Error>> {
            line.as_ref().unwrap().contains("Buffers") |
            line.as_ref().unwrap().contains("Cached") |
            line.as_ref().unwrap().contains("SReclaimable") {
-            mem_used += line?.split_whitespace().nth(1).unwrap().trim().parse::<u32>()?;
+            mem_free += line?.split_whitespace().nth(1).unwrap().trim().parse::<u32>()?;
         } else if line.as_ref().unwrap().contains("MemTotal") {
                       mem_total += line?.split_whitespace().nth(1).unwrap().trim().parse::<u32>()?;
                   }
     }
-    let mem_used = mem_total - mem_used;
+    let mem_used = mem_total - mem_free;
     Ok((mem_total, mem_used))
 }
