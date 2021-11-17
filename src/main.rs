@@ -242,6 +242,24 @@ MAGENTA, RESET
 );
             colour_dots();
         }
+        "Alpine Linux" => {
+            println!("{}        /\\            {} {}{}
+{}       /  \\           {} {}{}
+{}      / /\\ \\  /\\      {} {}{}
+{}     / /  \\ \\/  \\     {} {}{}
+{}    / /    \\ \\/\\ \\    {} {}{}
+{}   / / /|   \\ \\ \\ \\   {} {}{}
+{}  /_/ /_|    \\_\\ \\_\\  {}",
+BLUE, USER_ICON, RESET, system.user,
+BLUE, DESKTOP_ICON, RESET, system.distro,
+BLUE, LINUX_ICON, RESET, system.kernel,
+BLUE, TIME_ICON, RESET, system.uptime,
+BLUE, MEMORY_ICON, RESET, system.memory,
+BLUE, PKG_ICON, RESET, system.packages,
+BLUE, RESET
+);
+            colour_dots();
+        }
         _ => {
             println!("{}      ___     {}
 {}     ({}..{} \\        {}{} {}

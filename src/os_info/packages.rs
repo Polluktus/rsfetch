@@ -1,6 +1,9 @@
 use std::process::{Command, Stdio};
 use std::error::Error;
 use std::result::Result;
+use std::io::{BufReader, BufRead};
+use std::fs::File;
+use std::path::Path;
 
 pub fn get_packages(distro: &str) -> u32 {
     match distro {
@@ -9,6 +12,7 @@ pub fn get_packages(distro: &str) -> u32 {
         "Ubuntu" | "Debian GNU/Linux" | "Linux Mint"| "elementary OS" | "Devuan GNU/Linux"=> apt_packages().unwrap_or(0),
         "Fedora Linux" | "Rocky Linux" => rpm_packages().unwrap_or(0),
         "void" => xbps_packages().unwrap_or(0),
+        "Alpine Linux" => apline_packages().unwrap_or(0),
         _ => 0
     }
 }
@@ -109,4 +113,15 @@ fn xbps_packages() -> Result<u32, Box<dyn Error>> {
 
     let pkg = String::from_utf8_lossy(&count_pkg).trim().parse::<u32>()?;
     Ok(pkg)
+}
+
+fn apline_packages() -> Result<u32, Box<dyn Error>> {
+    let mut packages = 0;
+    let fb = BufReader::new(File::open(Path::new("/lib/apk/db/installed"))?);
+    for line in fb.lines() {
+        if line?.contains("P:") {
+            packages += 1;
+        }
+    }
+    Ok(packages)
 }
