@@ -70,4 +70,4 @@ sudo cp -v target/release/rsfetch /usr/local/bin
 
 ## Thanks
 * <a href="https://github.com/jschx/ufetch">ufetch</a> for ASCII arts
-* <a href="https://github.com/13-CF/afetch">afetch</a> for copying their fetch output. One of my most favourite.
+* <a href="https://github.com/13-CF/afetch">afetch</a> for inspiration to create this fetch.
