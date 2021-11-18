@@ -8,7 +8,7 @@ struct System {
     distro: Box<str>,
     kernel: Box<str>,
     uptime: Uptime,
-    shell: Box<str>,
+    memory: Box<str>,
     packages: u32
 }
 
@@ -21,7 +21,7 @@ impl System {
             distro,
             kernel: os_info::get_kernel(),
             uptime: os_info::get_uptime(),
-            shell: os_info::get_shell(),
+            memory: os_info::get_mem(),
             packages
         }
     }
@@ -44,7 +44,7 @@ MAGENTA, USER_ICON, RESET, system.user,
 MAGENTA, DESKTOP_ICON, RESET, system.distro,
 MAGENTA, LINUX_ICON, RESET, system.kernel,
 MAGENTA, TIME_ICON, RESET, system.uptime,
-MAGENTA, TERMINAL_ICON, RESET, system.shell,
+MAGENTA, MEMORY_ICON, RESET, system.memory,
 MAGENTA, PKG_ICON, RESET, system.packages
 );
             colour_dots();
@@ -61,7 +61,7 @@ BLUE, USER_ICON, RESET, system.user,
 BLUE, DESKTOP_ICON, RESET, system.distro,
 BLUE, LINUX_ICON, RESET, system.kernel,
 BLUE, TIME_ICON, RESET, system.uptime,
-BLUE, TERMINAL_ICON, RESET, system.shell,
+BLUE, MEMORY_ICON, RESET, system.memory,
 BLUE, PKG_ICON, RESET, system.packages,
 BLUE, RESET
 );
@@ -79,7 +79,7 @@ GREEN, USER_ICON, RESET, system.user,
 GREEN, DESKTOP_ICON, RESET, system.distro,
 GREEN, LINUX_ICON, RESET, system.kernel,
 GREEN, TIME_ICON, RESET, system.uptime,
-GREEN, TERMINAL_ICON, RESET, system.shell,
+GREEN, MEMORY_ICON, RESET, system.memory,
 GREEN, PKG_ICON, RESET, system.packages,
 GREEN, RESET
 );
@@ -96,7 +96,7 @@ YELLOW, USER_ICON, RESET, system.user,
 YELLOW, DESKTOP_ICON, RESET, system.distro,
 YELLOW, LINUX_ICON, RESET, system.kernel,
 YELLOW, TIME_ICON, RESET, system.uptime,
-YELLOW, TERMINAL_ICON, RESET, system.shell,
+YELLOW, MEMORY_ICON, RESET, system.memory,
 YELLOW, PKG_ICON, RESET, system.packages,
 );
             colour_dots()
@@ -113,7 +113,7 @@ BLUE, USER_ICON, RESET, system.user,
 BLUE, DESKTOP_ICON, RESET, system.distro,
 BLUE, LINUX_ICON, RESET, system.kernel,
 BLUE, TIME_ICON, RESET, system.uptime,
-BLUE, TERMINAL_ICON, RESET, system.shell,
+BLUE, MEMORY_ICON, RESET, system.memory,
 BLUE, PKG_ICON, RESET, system.packages,
 BLUE, RESET
 );
@@ -130,7 +130,7 @@ RED, USER_ICON, RESET, system.user,
 RED, DESKTOP_ICON, RESET, system.distro,
 RED, LINUX_ICON, RESET, system.kernel,
 RED, TIME_ICON, RESET, system.uptime,
-RED, TERMINAL_ICON, RESET, system.shell,
+RED, MEMORY_ICON, RESET, system.memory,
 RED, PKG_ICON, RESET, system.packages,
 );
             colour_dots();
@@ -148,7 +148,7 @@ GREEN, USER_ICON, RESET, system.user,
 GREEN, RESET , GREEN ,DESKTOP_ICON, RESET, system.distro,
 GREEN, RESET , GREEN ,LINUX_ICON, RESET, system.kernel,
 GREEN, RESET, GREEN ,TIME_ICON, RESET, system.uptime,
-GREEN, RESET, GREEN ,TERMINAL_ICON, RESET, system.shell,
+GREEN, RESET, GREEN ,MEMORY_ICON, RESET, system.memory,
 GREEN, PKG_ICON, RESET, system.packages
 );
             colour_dots();
@@ -166,7 +166,7 @@ BLUE, USER_ICON, RESET, system.user,
 BLUE, DESKTOP_ICON, RESET, system.distro,
 BLUE, RESET, BLUE, LINUX_ICON, RESET, system.kernel,
 BLUE, RESET, BLUE, TIME_ICON, RESET, system.uptime,
-BLUE, RESET, BLUE, TERMINAL_ICON, RESET, system.shell,
+BLUE, RESET, BLUE, MEMORY_ICON, RESET, system.memory,
 BLUE, RESET, BLUE, PKG_ICON, RESET, system.packages,
 BLUE, RESET
 );
@@ -185,7 +185,7 @@ GREEN, USER_ICON, RESET, system.user,
 GREEN, DESKTOP_ICON, RESET, system.distro,
 GREEN, LINUX_ICON, RESET, system.kernel,
 GREEN, TIME_ICON, RESET, system.uptime,
-GREEN, TERMINAL_ICON, RESET, system.shell,
+GREEN, MEMORY_ICON, RESET, system.memory,
 GREEN, PKG_ICON, RESET, system.packages,
 );
             colour_dots();
@@ -201,7 +201,7 @@ BLUE, USER_ICON, RESET, system.user,
 BLUE, DESKTOP_ICON, RESET, system.distro,
 BLUE, LINUX_ICON, RESET, system.kernel,
 BLUE, TIME_ICON, RESET, system.uptime,
-BLUE, TERMINAL_ICON, RESET, system.shell,
+BLUE, MEMORY_ICON, RESET, system.memory,
 BLUE, PKG_ICON, RESET, system.packages,
 );
             colour_dots();
@@ -218,7 +218,7 @@ GREEN, USER_ICON, RESET, system.user,
 GREEN, DESKTOP_ICON, RESET, system.distro,
 GREEN, LINUX_ICON, RESET, system.kernel,
 GREEN, TIME_ICON, RESET, system.uptime,
-GREEN, TERMINAL_ICON, RESET, system.shell,
+GREEN, MEMORY_ICON, RESET, system.memory,
 GREEN, PKG_ICON, RESET, system.packages,
 GREEN, RESET
 );
@@ -236,9 +236,27 @@ MAGENTA, USER_ICON, RESET, system.user,
 MAGENTA, DESKTOP_ICON, RESET, system.distro,
 MAGENTA, LINUX_ICON, RESET, system.kernel,
 MAGENTA, TIME_ICON, RESET, system.uptime,
-MAGENTA, TERMINAL_ICON, RESET, system.shell,
+MAGENTA, MEMORY_ICON, RESET, system.memory,
 MAGENTA, PKG_ICON, RESET, system.packages,
 MAGENTA, RESET
+);
+            colour_dots();
+        }
+        "Alpine Linux" => {
+            println!("{}        /\\            {} {}{}
+{}       /  \\           {} {}{}
+{}      / /\\ \\  /\\      {} {}{}
+{}     / /  \\ \\/  \\     {} {}{}
+{}    / /    \\ \\/\\ \\    {} {}{}
+{}   / / /|   \\ \\ \\ \\   {} {}{}
+{}  /_/ /_|    \\_\\ \\_\\  {}",
+BLUE, USER_ICON, RESET, system.user,
+BLUE, DESKTOP_ICON, RESET, system.distro,
+BLUE, LINUX_ICON, RESET, system.kernel,
+BLUE, TIME_ICON, RESET, system.uptime,
+BLUE, MEMORY_ICON, RESET, system.memory,
+BLUE, PKG_ICON, RESET, system.packages,
+BLUE, RESET
 );
             colour_dots();
         }
@@ -256,7 +274,7 @@ BLACK, RESET, BLACK, RESET, USER_ICON, system.user,
 BLACK, YELLOW, BLACK, RESET, DESKTOP_ICON, system.distro,
 BLACK, RESET, BLACK, RESET, LINUX_ICON, system.kernel,
 BLACK, RESET, BLACK, RESET, TIME_ICON, system.uptime,
-YELLOW, BLACK, RESET, BLACK, YELLOW, BLACK, RESET, TERMINAL_ICON, system.shell,
+YELLOW, BLACK, RESET, BLACK, YELLOW, BLACK, RESET, MEMORY_ICON, system.memory,
 YELLOW, BLACK, YELLOW, RESET, PKG_ICON, system.packages
 );
             colour_dots();

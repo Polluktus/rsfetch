@@ -4,8 +4,8 @@ pub use self::distro::distro_name;
 mod packages;
 pub use self::packages::get_packages;
 
-mod shell;
-pub use self::shell::get_shell;
+mod mem;
+pub use self::mem::get_mem;
 
 mod user;
 pub use self::user::get_user;

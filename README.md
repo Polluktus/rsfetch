@@ -10,8 +10,6 @@
 <h3>Why use rsfetch?</h3>
 <p">I created it to be as fast and low resource as possible, results can be seen in comparison part.</p><br>
 
----
-
 ## Requirements
 *  `/etc/os-release`
 *   <a href="https://www.rust-lang.org/learn/get-started">rust compiler</a>
@@ -46,6 +44,7 @@
 * Void
 * elementary OS
 * Devuan
+* Alpine Linux
 
 <br>
 
@@ -71,4 +70,4 @@ sudo cp -v target/release/rsfetch /usr/local/bin
 
 ## Thanks
 * <a href="https://github.com/jschx/ufetch">ufetch</a> for ASCII arts
-* <a href="https://github.com/13-CF/afetch">afetch</a> for copying their fetch output. One of my most favourite.
+* <a href="https://github.com/13-CF/afetch">afetch</a> for inspiration to create this fetch.

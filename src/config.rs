@@ -2,7 +2,7 @@ pub const USER_ICON: char = '\u{F2C0}';         //     they must be Unicode (
 pub const DESKTOP_ICON: char = '\u{F823}';      //
 pub const LINUX_ICON: char = '\u{E712}';        //
 pub const TIME_ICON: char = '\u{E386}';         //
-pub const TERMINAL_ICON: char = '\u{F489}';     //
+pub const MEMORY_ICON: char = '\u{F85A}';       //
 pub const PKG_ICON: char = '\u{F8D6}';          //
 
 pub const RESET: &str = "\x1b[0m";              //default terminal colors, you can change them 
