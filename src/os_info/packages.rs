@@ -119,7 +119,7 @@ fn apline_packages() -> Result<u32, Box<dyn Error>> {
     let mut packages = 0;
     let fb = BufReader::new(File::open(Path::new("/lib/apk/db/installed"))?);
     for line in fb.lines() {
-        if line?.contains("P:") {
+        if line?.starts_with("P:") {
             packages += 1;
         }
     }
