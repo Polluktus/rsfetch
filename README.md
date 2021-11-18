@@ -45,6 +45,7 @@
 * elementary OS
 * Devuan
 * Alpine Linux
+* Rocky Linux
 
 <br>
 
