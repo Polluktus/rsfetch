@@ -34,12 +34,12 @@ fn ram_usage() -> Result<(u32,u32), Box<dyn Error>> {
     let mut mem_total = 0;
     let fb = BufReader::new(File::open(Path::new("/proc/meminfo"))?);
     for line in fb.lines() {
-        if line.as_ref().unwrap().contains("MemFree") |
-           line.as_ref().unwrap().contains("Buffers") |
-           line.as_ref().unwrap().contains("Cached") |
-           line.as_ref().unwrap().contains("SReclaimable") {
+        if line.as_ref().unwrap().starts_with("MemFree") |
+           line.as_ref().unwrap().starts_with("Buffers") |
+           line.as_ref().unwrap().starts_with("Cached") |
+           line.as_ref().unwrap().starts_with("SReclaimable") {
             mem_free += line?.split_whitespace().nth(1).unwrap().trim().parse::<u32>()?;
-        } else if line.as_ref().unwrap().contains("MemTotal") {
+        } else if line.as_ref().unwrap().starts_with("MemTotal") {
                       mem_total += line?.split_whitespace().nth(1).unwrap().trim().parse::<u32>()?;
                   }
     }
